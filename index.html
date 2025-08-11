@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Allamtechno — تسجيل الدخول</title>
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main id="app">
+<section id="login-view" class="card">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">AT</div>
+    <div class="brand-text">
+      <h1 class="title">Allamtechno</h1>
+      <p class="subtitle">برمجة: المهندس أحمد علام</p>
+    </div>
+  </div>
+  <form id="login-form" autocomplete="off">
+    <label>
+      <span>اسم المستخدم</span>
+      <input id="username" name="username" placeholder="اكتب اسم المستخدم" required />
+    </label>
+    <label>
+      <span>كلمة المرور</span>
+      <input id="password" name="password" type="password" placeholder="••••••" required />
+    </label>
+    <button id="login-btn" type="submit">دخول</button>
+    <p class="hint">Ahmedallam / 5781829 — أو — Admin / 102030405060</p>
+    <div id="login-alert" role="alert" aria-live="polite"></div>
+  </form>
+</section>
+
+<section id="dash-view" class="hidden">
+  <header class="topbar">
+    <div class="top-left">
+      <div class="logo small">AT</div>
+      <div class="product">
+        <strong>Allamtechno</strong>
+        <span>لوحة التحكم</span>
+      </div>
+    </div>
+    <div class="top-right">
+      <span id="whoami"></span>
+      <button id="logout-btn" class="ghost">تسجيل الخروج</button>
+      <a id="enter-app" class="primary" href="./app/" style="text-decoration:none;padding:10px 14px;border-radius:12px">دخول إلى البرنامج</a>
+    </div>
+  </header>
+</section>
+</main>
+<script>
+window.APP_USERS = [{"u": "Ahmedallam", "h": "54f4c3bbc5232647957516a2f2aa3ba74b9840b369d98e5692882eeda97b66f7", "r": "مبرمج", "d": "Ahmed Allam"}, {"u": "Admin", "h": "c85f67ba80260c5fabbea24426b834a994d5e0d8c5e39ecc5ce1bf705e8ba79b", "r": "أدمن (العميل)", "d": "Client Admin"}];
+</script>
+<script src="gate.js"></script>
+</body>
+</html>
