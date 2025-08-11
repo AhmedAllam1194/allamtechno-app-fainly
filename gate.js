@@ -7,7 +7,18 @@ function getSession(){try{return JSON.parse(sessionStorage.getItem("AT_SESSION")
 function clearSession(){sessionStorage.removeItem("AT_SESSION")}
 function showLogin(){$("#login-view").classList.remove("hidden");$("#dash-view").classList.add("hidden")}
 function showDash(s){$("#login-view").classList.add("hidden");$("#dash-view").classList.remove("hidden");$("#whoami").textContent=`${s.d} (${s.u}) — صلاحية: ${s.r}`}
-async function onLogin(e){e.preventDefault();const u=$("#username").value.trim(),p=$("#password").value;if(!u||!p){$("#login-alert").textContent="أدخل البيانات";return}const h=await sha256Hex(p);const f=DB.find(x=>x.u===u&&x.h===h);if(f){saveSession(f);showDash(f)}else{$("#login-alert").textContent="بيانات الدخول غير صحيحة"}}
+async function onLogin(e){e.preventDefault();const u=$("#username").value.trim(),p=$("#password").value;if(!u||!p){$("#login-alert").textContent="أدخل البيانات";return}const h=await sha256Hex(p);const f=DB.find(x=>x.u===u&&x.h===h);if(f){saveSession(f);window.location.href='./app/';}else{$("#login-alert").textContent="بيانات الدخول غير صحيحة"}}
 function onLogout(){clearSession();showLogin()}
 function init(){$("#login-form").addEventListener("submit",onLogin);$("#logout-btn").addEventListener("click",onLogout);const s=getSession();s?showDash(s):showLogin()}
 document.addEventListener("DOMContentLoaded",init);
+
+// --- Splash 40s logic ---
+function showSplash(){ const s=document.getElementById("splash"); if(s){ s.classList.add("visible"); } }
+function hideSplash(){ const s=document.getElementById("splash"); if(s){ s.classList.remove("visible"); } }
+
+document.addEventListener("DOMContentLoaded", () => {
+  showSplash();
+  const btn = document.getElementById("skip-splash");
+  if(btn){ btn.addEventListener("click", hideSplash); }
+  setTimeout(hideSplash, 40000); // 40 seconds
+});
