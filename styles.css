@@ -37,10 +37,7 @@ body{
   opacity:0; pointer-events:none; transition: opacity .5s ease;
 }
 .splash.visible{opacity:1; pointer-events:auto}
-.splash-card{
-  width:320px; padding:26px; border-radius:22px; box-shadow: var(--shadow);
-  background: var(--card); text-align:center;
-}
+.splash-card{width:300px;height:300px;padding:22px;border-radius:26px;box-shadow:var(--shadow);background: var(--card);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
 .splash-logo{
   width:64px; height:64px; margin:0 auto 10px; border-radius:18px;
   display:grid; place-items:center; color:white; font-weight:800;
@@ -81,3 +78,6 @@ body{
 #login-alert{min-height:1.2em; color:#ef4444; font-weight:700; text-align:center; margin-top:6px}
 
 .hidden{display:none !important}
+
+.splash-logo-img{width:120px;height:auto;margin:0 auto 4px;filter: drop-shadow(0 8px 22px rgba(79,70,229,.45));}
+.app-logo-img{width:60px;height:auto;filter: drop-shadow(0 6px 18px rgba(79,70,229,.45));}

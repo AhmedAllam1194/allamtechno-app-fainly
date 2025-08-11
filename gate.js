@@ -20,5 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
   showSplash();
   const btn = document.getElementById("skip-splash");
   if(btn){ btn.addEventListener("click", hideSplash); }
-  setTimeout(hideSplash, 40000); // 40 seconds
+  setTimeout(hideSplash, 4000); // 40 seconds
 });
+
+// Ensure login shows right after splash ends
+(function(){
+  const s = document.getElementById("splash");
+  if(!s) return;
+  const showLoginNow = ()=>{
+    const login = document.getElementById("login-view");
+    if(login && login.classList.contains("hidden")) login.classList.remove("hidden");
+  };
+  s.addEventListener("transitionend", showLoginNow);
+  document.getElementById("skip-splash")?.addEventListener("click", showLoginNow);
+  setTimeout(showLoginNow, 4200);
+})();
